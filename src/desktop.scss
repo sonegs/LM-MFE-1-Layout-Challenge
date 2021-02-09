@@ -1,0 +1,62 @@
+$movementPreviewImages: translateX(-15%);
+$movementBottomImages: translateX(15%);
+$movementImageSelected: translateX(12%);
+$growHoverImage: scale(1.3);
+@media (min-width: 1280px) {
+    header {
+        position: sticky;
+        top: 0;
+        display: $appearFlex;
+        .header-logo {
+            .platform-title {
+                display: $appearBlock;
+                padding-left: .5rem;
+            }
+        }
+        .header-buttons {
+            div {
+                padding: .9rem .7rem;
+            }
+        }
+    }
+    main {
+        .section-title {
+            display: inline-block;
+            font-size: 1rem;
+            span.desktop {
+                display: $appearInline;
+            }
+            span.mobile {
+                display: $notAppear;
+            }
+        }
+        .top {
+            cursor: pointer;
+             :nth-child(2),
+             :first-child {
+                display: $appearFlex;
+            }
+        }
+        .first,
+        .second {
+            display: $appearFlex;
+            padding: 0 0 1rem;
+            .item {
+                min-width: 200px;
+                 :hover,
+                 :focus {
+                    transform: $growHoverImage $movementImageSelected;
+                }
+            }
+            .item:hover~.item {
+                transform: $movementBottomImages;
+            }
+        }
+        .first:hover .item,
+        .first:focus-within .item,
+        .second:hover .item,
+        .second:focus-within .item {
+            transform: $movementPreviewImages;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+$gridMobileFr: 1fr;
+$fontSizeMobile: 2.1rem;
+$spaceBetweenImages: 0.1rem 0;
+$movementPreviewImages: translateY(-6%);
+$movementBottomImages: translateY(8%);
+$movementImageSelected: translateY(6%);
+$growHoverImage: scale(1.1);
+body {
+    display: grid;
+    grid-template-rows: $gridMobileFr, $gridMobileFr;
+}
+
+header {
+    position: initial;
+    top: auto;
+    display: grid;
+    grid-template-columns: repeat(2, $gridMobileFr);
+    grid-template-rows: $gridMobileFr;
+    padding: 2rem 1rem 3rem;
+    .header-logo {
+        justify-content: center;
+        .platform-title {
+            display: $notAppear;
+        }
+    }
+    .header-buttons {
+        display: $appearFlex;
+        justify-content: space-around;
+    }
+}
+
+main {
+    grid-template-columns: $gridMobileFr;
+    .section-title {
+        color: white;
+        font-size: $fontSizeMobile;
+        padding: 1rem;
+        span.desktop {
+            display: $notAppear;
+        }
+    }
+    section {
+        div {
+            display: $appearFlex;
+            justify-content: center;
+        }
+    }
+    .top {
+        display: $appearFlex;
+        flex-direction: column-reverse;
+         :nth-child(2),
+         :first-child {
+            display: $notAppear;
+        }
+        .top-item {
+             :first-child {
+                display: $appearBlock;
+            }
+        }
+    }
+    .first,
+    .second {
+        div {
+            padding: $spaceBetweenImages;
+        }
+        .item {
+            min-width: 200px;
+             :hover,
+             :focus {
+                transform: $growHoverImage $movementImageSelected;
+            }
+        }
+        .item:hover~.item {
+            transform: $movementBottomImages;
+        }
+    }
+    .first:hover .item,
+    .first:focus-within .item,
+    .second:hover .item,
+    .second:focus-within .item {
+        transform: $movementPreviewImages;
+    }
+}

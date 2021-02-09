@@ -1,0 +1,60 @@
+$movementPreviewImages: translateX(-15%);
+$movementBigPreviewImages: translateX(5%);
+$movementBottomImages: translateY(2%);
+$movementImageSelected: translateX(7%);
+$movementBigImageSelected: translateX(-3%);
+$growHoverImage: scale(1.1);
+$growHoverBigImage: scale(0.95);
+@media (min-width: 992px) {
+    main {
+        .first,
+        .second {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr 2fr;
+            gap: .2rem;
+             :hover,
+             :focus {
+                transform: $growHoverImage $movementImageSelected;
+            }
+             :nth-child(-n+4) {
+                 :hover,
+                 :focus {
+                    transform: $growHoverImage $movementImageSelected;
+                }
+            }
+             :nth-child(-n+4):hover~.item {
+                transform: $movementBottomImages;
+            }
+             :nth-child(5) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+             :nth-child(6) {
+                grid-column-start: 3;
+                grid-column-end: -1;
+            }
+             :nth-child(n+5) {
+                 :hover,
+                 :focus {
+                    transform: $growHoverBigImage $movementBigImageSelected;
+                    opacity: 0.6;
+                }
+            }
+            .item:hover~.item {
+                transform: $movementBottomImages;
+            }
+        }
+        .first:hover .item,
+        .first:focus-within .item,
+        .second:hover .item,
+        .second:focus-within .item {
+            transform: $movementPreviewImages;
+        }
+        .first:hover :nth-child(n+5),
+        .first:focus-within :nth-child(n+5),
+        .second:hover :nth-child(n+5),
+        .second:focus-within :nth-child(n+5) {
+            transform: $movementBigPreviewImages;
+        }
+    }
+}

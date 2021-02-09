@@ -1,0 +1,78 @@
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600&display=swap');
+        $font: 'Jost',
+        sans-serif;
+        $notAppear: none;
+        $appearBlock: block;
+        $appearFlex: flex;
+        $appearInline: inline;
+        $backgroundColor: #141414;
+        $transitionImagesMovements: .5s;
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: $backgroundColor;
+        }
+        
+        header {
+            color: white;
+            font-family: $font;
+            display: $appearFlex;
+            background-color: $backgroundColor;
+            .header-logo {
+                display: $appearFlex;
+                align-items: center;
+            }
+            .header-buttons {
+                display: $appearFlex;
+                align-items: center;
+                font-weight: 300;
+                div {
+                    padding: .5em;
+                    cursor: pointer;
+                    transition: .3s;
+                }
+                 :hover {
+                    background-color: white;
+                    color: blue;
+                    border-radius: 5px;
+                }
+            }
+        }
+        
+        main {
+            display: grid;
+            overflow: hidden;
+            .section-title {
+                font-family: $font;
+                span {
+                    font-weight: 600;
+                }
+            }
+            .top {
+                cursor: pointer;
+            }
+            .first,
+            .second {
+                .item {
+                    display: $appearFlex;
+                     :hover,
+                     :focus {
+                        transition-duration: $transitionImagesMovements;
+                    }
+                }
+                img {
+                    cursor: pointer;
+                }
+            }
+            .first:hover .item,
+            .first:focus-within .item,
+            .second:hover .item,
+            .second:focus-within .item {
+                transition-duration: $transitionImagesMovements;
+            }
+        }
+        
+        @import 'mobile';
+        @import 'tablet';
+        @import 'responsive';
+        @import 'desktop';

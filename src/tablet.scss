@@ -1,0 +1,69 @@
+$fontSizeTablet: 1.3rem;
+$fontSizeHeader: .7rem;
+$notVerticalMovementImages: translateY(0%);
+$growHoverImage: scale(1.05);
+@media (min-width: 780px) {
+    body {
+        display: $appearBlock;
+    }
+    header {
+        display: $appearFlex;
+        justify-content: space-between;
+        padding: 1rem 1rem 2rem;
+        .header-logo {
+            img {
+                max-width: 6rem;
+            }
+        }
+        .header-buttons {
+            font-size: $fontSizeHeader;
+            div {
+                padding: 1.2rem;
+            }
+        }
+    }
+    main {
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 0 .5rem;
+        .section-title {
+            font-size: $fontSizeTablet;
+        }
+        .top {
+            flex-direction: row-reverse;
+            justify-content: space-around;
+            .top-item {
+                min-width: 225px;
+                img {
+                    min-width: 1rem;
+                }
+            }
+        }
+        .first,
+        .second {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: .2rem;
+            .item {
+                min-width: 250px;
+                 :hover,
+                 :focus {
+                    transform: $growHoverImage $notVerticalMovementImages translateX(5%);
+                }
+                img {
+                    min-width: 1rem;
+                }
+            }
+            .item:hover~.item {
+                transform: $notVerticalMovementImages translateX(5%);
+            }
+        }
+        .first:hover .item,
+        .first:focus-within .item,
+        .second:hover .item,
+        .second:focus-within .item {
+            transform: $notVerticalMovementImages translateX(-5%);
+        }
+    }
+}
